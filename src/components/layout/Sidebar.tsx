@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { BarChart3, Package, Package2 } from 'lucide-react'
+import { BarChart3, Package } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -18,10 +18,15 @@ export function Sidebar({ onNavClick, showLogo = false }: SidebarProps) {
   return (
     <nav aria-label="Main navigation" className="flex flex-col gap-1 p-4">
       {showLogo && (
-        <div className="flex items-center gap-2 px-3 py-3 mb-2">
-          <Package2 className="h-6 w-6 text-primary shrink-0" aria-hidden="true" />
+        <Link
+          to="/products"
+          onClick={onNavClick}
+          className="flex items-center gap-2 px-3 py-3 mb-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label="Prodexa home"
+        >
+          <img src="/favicon.svg" alt="" aria-hidden="true" className="h-6 w-6 shrink-0" />
           <span className="font-semibold text-lg">Prodexa</span>
-        </div>
+        </Link>
       )}
       <p className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
         Navigation
